@@ -26,7 +26,7 @@ void UUHealthComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 // Called when the game starts
 void UUHealthComponent::BeginPlay()
 {
-	Super::BeginPlay();
+	Super::BeginPlay(); 
 
 	// Initialize CurrentHealth to MaxHealth at start
 	if (GetOwnerRole() == ROLE_Authority)

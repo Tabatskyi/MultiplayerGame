@@ -12,6 +12,9 @@
 #include "Blueprint/UserWidget.h"
 #include "Practice3.h"
 #include "Widgets/Input/SVirtualJoystick.h"
+#include "EnhancedInputComponent.h"
+#include "InputActionValue.h"
+#include "UHealthComponent.h"
 
 void ACombatPlayerController::BeginPlay()
 {
@@ -61,6 +64,19 @@ void ACombatPlayerController::SetupInputComponent()
 				}
 			}
 		}
+
+		// Setup damage test key bindings
+		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
+		{
+			if (DamageTestAction)
+			{
+				EnhancedInputComponent->BindAction(DamageTestAction, ETriggerEvent::Started, this, &ACombatPlayerController::OnDamageTestPressed);
+			}
+			if (InvalidDamageTestAction)
+			{
+				EnhancedInputComponent->BindAction(InvalidDamageTestAction, ETriggerEvent::Started, this, &ACombatPlayerController::OnInvalidDamageTestPressed);
+			}
+		}
 	}
 }
 
@@ -92,4 +108,51 @@ bool ACombatPlayerController::ShouldUseTouchControls() const
 {
 	// are we on a mobile platform? Should we force touch?
 	return SVirtualJoystick::ShouldDisplayTouchInterface() || bForceTouchControls;
+}
+
+void ACombatPlayerController::OnDamageTestPressed()
+{
+	// Apply valid damage (10.0f) to nearby enemy
+	ApplyDamageToNearbyEnemy(10.0f);
+}
+
+void ACombatPlayerController::OnInvalidDamageTestPressed()
+{
+	// Try to apply invalid damage (-99999.0f) to test validation
+	ApplyDamageToNearbyEnemy(-99999.0f);
+}
+
+void ACombatPlayerController::ApplyDamageToNearbyEnemy(float DamageAmount)
+{
+	APawn* ControlledPawn = GetPawn();
+	if (!ControlledPawn)
+	{
+		return;
+	}
+
+	// Simple raycast to find a target
+	FVector StartLoc = ControlledPawn->GetActorLocation();
+	FVector ForwardDir = ControlledPawn->GetActorForwardVector();
+	FVector EndLoc = StartLoc + ForwardDir * 2000.0f;
+
+	FHitResult HitResult;
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(ControlledPawn);
+
+	if (GetWorld()->LineTraceSingleByChannel(HitResult, StartLoc, EndLoc, ECC_Pawn, QueryParams))
+	{
+		AActor* HitActor = HitResult.GetActor();
+		if (HitActor && HitActor != ControlledPawn)
+		{
+			if (UUHealthComponent* HealthComponent = HitActor->FindComponentByClass<UUHealthComponent>())
+			{
+				HealthComponent->ServerApplyDamage(DamageAmount);
+				UE_LOG(LogTemp, Warning, TEXT("Damage test: %s applied %.2f damage to %s"), *ControlledPawn->GetName(), DamageAmount, *HitActor->GetName());
+			}
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("No target found in range for damage test"));
+	}
 }

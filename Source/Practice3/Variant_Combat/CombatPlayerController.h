@@ -8,6 +8,7 @@
 
 class UInputMappingContext;
 class ACombatCharacter;
+class UInputAction;
 
 /**
  *  Simple Player Controller for a third person combat game
@@ -18,7 +19,7 @@ UCLASS(abstract, Config="Game")
 class ACombatPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-	
+
 protected:
 
 	/** Input mapping context for this player */
@@ -48,6 +49,14 @@ protected:
 	/** Transform to respawn the character at. Can be set to create checkpoints */
 	FTransform RespawnTransform;
 
+	/** Damage test input action (F key) */
+	UPROPERTY(EditAnywhere, Category="Input")
+	TObjectPtr<UInputAction> DamageTestAction;
+
+	/** Invalid damage test input action (G key) */
+	UPROPERTY(EditAnywhere, Category="Input")
+	TObjectPtr<UInputAction> InvalidDamageTestAction;
+
 protected:
 
 	/** Gameplay initialization */
@@ -58,6 +67,15 @@ protected:
 
 	/** Pawn initialization */
 	virtual void OnPossess(APawn* InPawn) override;
+
+	/** Called when the damage test key is pressed */
+	void OnDamageTestPressed();
+
+	/** Called when the invalid damage test key is pressed */
+	void OnInvalidDamageTestPressed();
+
+	/** Helper function to find and damage nearby enemies */
+	void ApplyDamageToNearbyEnemy(float DamageAmount);
 
 public:
 
