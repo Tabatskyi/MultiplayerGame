@@ -4,63 +4,63 @@
 UNREALROOTPATH = /opt/unreal-engine
 
 TARGETS = \
-	Practice3-Android-Debug  \
-	Practice3-Android-DebugGame  \
-	Practice3-Android-Development  \
-	Practice3-Android-Test  \
-	Practice3-Android-Shipping  \
-	Practice3-IOS-Debug  \
-	Practice3-IOS-DebugGame  \
-	Practice3-IOS-Development  \
-	Practice3-IOS-Test  \
-	Practice3-IOS-Shipping  \
-	Practice3-Linux-Debug  \
-	Practice3-Linux-DebugGame  \
-	Practice3-Linux-Development  \
-	Practice3-Linux-Test  \
-	Practice3-Linux-Shipping  \
-	Practice3-LinuxArm64-Debug  \
-	Practice3-LinuxArm64-DebugGame  \
-	Practice3-LinuxArm64-Development  \
-	Practice3-LinuxArm64-Test  \
-	Practice3-LinuxArm64-Shipping  \
-	Practice3-Mac-Debug  \
-	Practice3-Mac-DebugGame  \
-	Practice3-Mac-Development  \
-	Practice3-Mac-Test  \
-	Practice3-Mac-Shipping  \
-	Practice3-TVOS-Debug  \
-	Practice3-TVOS-DebugGame  \
-	Practice3-TVOS-Development  \
-	Practice3-TVOS-Test  \
-	Practice3-TVOS-Shipping  \
-	Practice3-VisionOS-Debug  \
-	Practice3-VisionOS-DebugGame  \
-	Practice3-VisionOS-Development  \
-	Practice3-VisionOS-Test  \
-	Practice3-VisionOS-Shipping  \
-	Practice3-Win64-Debug  \
-	Practice3-Win64-DebugGame  \
-	Practice3-Win64-Development  \
-	Practice3-Win64-Test  \
-	Practice3-Win64-Shipping  \
-	Practice3 \
-	Practice3Editor-Linux-Debug  \
-	Practice3Editor-Linux-DebugGame  \
-	Practice3Editor-Linux-Development  \
-	Practice3Editor-Linux-Test  \
-	Practice3Editor-Linux-Shipping  \
-	Practice3Editor-Mac-Debug  \
-	Practice3Editor-Mac-DebugGame  \
-	Practice3Editor-Mac-Development  \
-	Practice3Editor-Mac-Test  \
-	Practice3Editor-Mac-Shipping  \
-	Practice3Editor-Win64-Debug  \
-	Practice3Editor-Win64-DebugGame  \
-	Practice3Editor-Win64-Development  \
-	Practice3Editor-Win64-Test  \
-	Practice3Editor-Win64-Shipping  \
-	Practice3Editor \
+	Practice-Android-Debug  \
+	Practice-Android-DebugGame  \
+	Practice-Android-Development  \
+	Practice-Android-Test  \
+	Practice-Android-Shipping  \
+	Practice-IOS-Debug  \
+	Practice-IOS-DebugGame  \
+	Practice-IOS-Development  \
+	Practice-IOS-Test  \
+	Practice-IOS-Shipping  \
+	Practice-Linux-Debug  \
+	Practice-Linux-DebugGame  \
+	Practice-Linux-Development  \
+	Practice-Linux-Test  \
+	Practice-Linux-Shipping  \
+	Practice-LinuxArm64-Debug  \
+	Practice-LinuxArm64-DebugGame  \
+	Practice-LinuxArm64-Development  \
+	Practice-LinuxArm64-Test  \
+	Practice-LinuxArm64-Shipping  \
+	Practice-Mac-Debug  \
+	Practice-Mac-DebugGame  \
+	Practice-Mac-Development  \
+	Practice-Mac-Test  \
+	Practice-Mac-Shipping  \
+	Practice-TVOS-Debug  \
+	Practice-TVOS-DebugGame  \
+	Practice-TVOS-Development  \
+	Practice-TVOS-Test  \
+	Practice-TVOS-Shipping  \
+	Practice-VisionOS-Debug  \
+	Practice-VisionOS-DebugGame  \
+	Practice-VisionOS-Development  \
+	Practice-VisionOS-Test  \
+	Practice-VisionOS-Shipping  \
+	Practice-Win64-Debug  \
+	Practice-Win64-DebugGame  \
+	Practice-Win64-Development  \
+	Practice-Win64-Test  \
+	Practice-Win64-Shipping  \
+	Practice \
+	PracticeEditor-Linux-Debug  \
+	PracticeEditor-Linux-DebugGame  \
+	PracticeEditor-Linux-Development  \
+	PracticeEditor-Linux-Test  \
+	PracticeEditor-Linux-Shipping  \
+	PracticeEditor-Mac-Debug  \
+	PracticeEditor-Mac-DebugGame  \
+	PracticeEditor-Mac-Development  \
+	PracticeEditor-Mac-Test  \
+	PracticeEditor-Mac-Shipping  \
+	PracticeEditor-Win64-Debug  \
+	PracticeEditor-Win64-DebugGame  \
+	PracticeEditor-Win64-Development  \
+	PracticeEditor-Win64-Test  \
+	PracticeEditor-Win64-Shipping  \
+	PracticeEditor \
 	GameplayGraphTests-Android-Debug  \
 	GameplayGraphTests-Android-DebugGame  \
 	GameplayGraphTests-Android-Development  \
@@ -2358,179 +2358,179 @@ all: StandardSet
 
 RequiredTools: CrashReportClient-Linux-Shipping CrashReportClientEditor-Linux-Shipping ShaderCompileWorker UnrealLightmass EpicWebHelper-Linux-Shipping
 
-StandardSet: RequiredTools UnrealFrontend Practice3Editor UnrealInsights
+StandardSet: RequiredTools UnrealFrontend PracticeEditor UnrealInsights
 
-DebugSet: RequiredTools UnrealFrontend-Linux-Debug Practice3Editor-Linux-Debug
+DebugSet: RequiredTools UnrealFrontend-Linux-Debug PracticeEditor-Linux-Debug
 
 
-Practice3-Android-Debug:
-	 $(BUILD) Practice3 Android Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Android-Debug:
+	 $(BUILD) Practice Android Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Android-DebugGame:
-	 $(BUILD) Practice3 Android DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Android-DebugGame:
+	 $(BUILD) Practice Android DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Android-Development:
-	 $(BUILD) Practice3 Android Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Android-Development:
+	 $(BUILD) Practice Android Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Android-Test:
-	 $(BUILD) Practice3 Android Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Android-Test:
+	 $(BUILD) Practice Android Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Android-Shipping:
-	 $(BUILD) Practice3 Android Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Android-Shipping:
+	 $(BUILD) Practice Android Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-IOS-Debug:
-	 $(BUILD) Practice3 IOS Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-IOS-Debug:
+	 $(BUILD) Practice IOS Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-IOS-DebugGame:
-	 $(BUILD) Practice3 IOS DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-IOS-DebugGame:
+	 $(BUILD) Practice IOS DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-IOS-Development:
-	 $(BUILD) Practice3 IOS Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-IOS-Development:
+	 $(BUILD) Practice IOS Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-IOS-Test:
-	 $(BUILD) Practice3 IOS Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-IOS-Test:
+	 $(BUILD) Practice IOS Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-IOS-Shipping:
-	 $(BUILD) Practice3 IOS Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-IOS-Shipping:
+	 $(BUILD) Practice IOS Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Linux-Debug:
-	 $(BUILD) Practice3 Linux Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Linux-Debug:
+	 $(BUILD) Practice Linux Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Linux-DebugGame:
-	 $(BUILD) Practice3 Linux DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Linux-DebugGame:
+	 $(BUILD) Practice Linux DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Linux-Development:
-	 $(BUILD) Practice3 Linux Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Linux-Development:
+	 $(BUILD) Practice Linux Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Linux-Test:
-	 $(BUILD) Practice3 Linux Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Linux-Test:
+	 $(BUILD) Practice Linux Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Linux-Shipping:
-	 $(BUILD) Practice3 Linux Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Linux-Shipping:
+	 $(BUILD) Practice Linux Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-LinuxArm64-Debug:
-	 $(BUILD) Practice3 LinuxArm64 Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-LinuxArm64-Debug:
+	 $(BUILD) Practice LinuxArm64 Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-LinuxArm64-DebugGame:
-	 $(BUILD) Practice3 LinuxArm64 DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-LinuxArm64-DebugGame:
+	 $(BUILD) Practice LinuxArm64 DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-LinuxArm64-Development:
-	 $(BUILD) Practice3 LinuxArm64 Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-LinuxArm64-Development:
+	 $(BUILD) Practice LinuxArm64 Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-LinuxArm64-Test:
-	 $(BUILD) Practice3 LinuxArm64 Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-LinuxArm64-Test:
+	 $(BUILD) Practice LinuxArm64 Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-LinuxArm64-Shipping:
-	 $(BUILD) Practice3 LinuxArm64 Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-LinuxArm64-Shipping:
+	 $(BUILD) Practice LinuxArm64 Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Mac-Debug:
-	 $(BUILD) Practice3 Mac Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Mac-Debug:
+	 $(BUILD) Practice Mac Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Mac-DebugGame:
-	 $(BUILD) Practice3 Mac DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Mac-DebugGame:
+	 $(BUILD) Practice Mac DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Mac-Development:
-	 $(BUILD) Practice3 Mac Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Mac-Development:
+	 $(BUILD) Practice Mac Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Mac-Test:
-	 $(BUILD) Practice3 Mac Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Mac-Test:
+	 $(BUILD) Practice Mac Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Mac-Shipping:
-	 $(BUILD) Practice3 Mac Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Mac-Shipping:
+	 $(BUILD) Practice Mac Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-TVOS-Debug:
-	 $(BUILD) Practice3 TVOS Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-TVOS-Debug:
+	 $(BUILD) Practice TVOS Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-TVOS-DebugGame:
-	 $(BUILD) Practice3 TVOS DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-TVOS-DebugGame:
+	 $(BUILD) Practice TVOS DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-TVOS-Development:
-	 $(BUILD) Practice3 TVOS Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-TVOS-Development:
+	 $(BUILD) Practice TVOS Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-TVOS-Test:
-	 $(BUILD) Practice3 TVOS Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-TVOS-Test:
+	 $(BUILD) Practice TVOS Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-TVOS-Shipping:
-	 $(BUILD) Practice3 TVOS Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-TVOS-Shipping:
+	 $(BUILD) Practice TVOS Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-VisionOS-Debug:
-	 $(BUILD) Practice3 VisionOS Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-VisionOS-Debug:
+	 $(BUILD) Practice VisionOS Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-VisionOS-DebugGame:
-	 $(BUILD) Practice3 VisionOS DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-VisionOS-DebugGame:
+	 $(BUILD) Practice VisionOS DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-VisionOS-Development:
-	 $(BUILD) Practice3 VisionOS Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-VisionOS-Development:
+	 $(BUILD) Practice VisionOS Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-VisionOS-Test:
-	 $(BUILD) Practice3 VisionOS Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-VisionOS-Test:
+	 $(BUILD) Practice VisionOS Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-VisionOS-Shipping:
-	 $(BUILD) Practice3 VisionOS Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-VisionOS-Shipping:
+	 $(BUILD) Practice VisionOS Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Win64-Debug:
-	 $(BUILD) Practice3 Win64 Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Win64-Debug:
+	 $(BUILD) Practice Win64 Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Win64-DebugGame:
-	 $(BUILD) Practice3 Win64 DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Win64-DebugGame:
+	 $(BUILD) Practice Win64 DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Win64-Development:
-	 $(BUILD) Practice3 Win64 Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Win64-Development:
+	 $(BUILD) Practice Win64 Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Win64-Test:
-	 $(BUILD) Practice3 Win64 Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Win64-Test:
+	 $(BUILD) Practice Win64 Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3-Win64-Shipping:
-	 $(BUILD) Practice3 Win64 Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+Practice-Win64-Shipping:
+	 $(BUILD) Practice Win64 Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3: Practice3-Linux-Development
+Practice: Practice-Linux-Development
 
-Practice3Editor-Linux-Debug:
-	 $(BUILD) Practice3Editor Linux Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Linux-Debug:
+	 $(BUILD) PracticeEditor Linux Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Linux-DebugGame:
-	 $(BUILD) Practice3Editor Linux DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Linux-DebugGame:
+	 $(BUILD) PracticeEditor Linux DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Linux-Development:
-	 $(BUILD) Practice3Editor Linux Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Linux-Development:
+	 $(BUILD) PracticeEditor Linux Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Linux-Test:
-	 $(BUILD) Practice3Editor Linux Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Linux-Test:
+	 $(BUILD) PracticeEditor Linux Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Linux-Shipping:
-	 $(BUILD) Practice3Editor Linux Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Linux-Shipping:
+	 $(BUILD) PracticeEditor Linux Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Mac-Debug:
-	 $(BUILD) Practice3Editor Mac Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Mac-Debug:
+	 $(BUILD) PracticeEditor Mac Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Mac-DebugGame:
-	 $(BUILD) Practice3Editor Mac DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Mac-DebugGame:
+	 $(BUILD) PracticeEditor Mac DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Mac-Development:
-	 $(BUILD) Practice3Editor Mac Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Mac-Development:
+	 $(BUILD) PracticeEditor Mac Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Mac-Test:
-	 $(BUILD) Practice3Editor Mac Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Mac-Test:
+	 $(BUILD) PracticeEditor Mac Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Mac-Shipping:
-	 $(BUILD) Practice3Editor Mac Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Mac-Shipping:
+	 $(BUILD) PracticeEditor Mac Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Win64-Debug:
-	 $(BUILD) Practice3Editor Win64 Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Win64-Debug:
+	 $(BUILD) PracticeEditor Win64 Debug  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Win64-DebugGame:
-	 $(BUILD) Practice3Editor Win64 DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Win64-DebugGame:
+	 $(BUILD) PracticeEditor Win64 DebugGame  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Win64-Development:
-	 $(BUILD) Practice3Editor Win64 Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Win64-Development:
+	 $(BUILD) PracticeEditor Win64 Development  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Win64-Test:
-	 $(BUILD) Practice3Editor Win64 Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Win64-Test:
+	 $(BUILD) PracticeEditor Win64 Test  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor-Win64-Shipping:
-	 $(BUILD) Practice3Editor Win64 Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" $(ARGS)
+PracticeEditor-Win64-Shipping:
+	 $(BUILD) PracticeEditor Win64 Shipping  -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" $(ARGS)
 
-Practice3Editor: Practice3Editor-Linux-Development
+PracticeEditor: PracticeEditor-Linux-Development
 
 GameplayGraphTests-Android-Debug:
 	 $(BUILD) GameplayGraphTests Android Debug  $(ARGS)
@@ -9296,6 +9296,6 @@ UnrealServer-Win64-Shipping:
 UnrealServer: UnrealServer-Linux-Development
 
 configure:
-	$(BUILD) -ProjectFiles -Project="/home/vasenka88/Documents/Unreal Projects/Practice3/Practice3.uproject" -Game 
+	$(BUILD) -ProjectFiles -Project="/home/vasenka88/Documents/Unreal Projects/Practice/Practice.uproject" -Game 
 
 .PHONY: $(TARGETS)
