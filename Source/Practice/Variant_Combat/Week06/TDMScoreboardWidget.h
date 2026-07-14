@@ -4,6 +4,10 @@
 #include "CoreMinimal.h"
 #include "TDMScoreboardWidget.generated.h"
 
+class UTextBlock;
+class UVerticalBox;
+class UBorder;
+
 USTRUCT(BlueprintType)
 struct FTDMPlayerRow {
   GENERATED_BODY()
@@ -21,23 +25,43 @@ struct FTDMPlayerRow {
   int32 Deaths = 0;
 };
 
-UCLASS(abstract)
+/**
+ * Fully C++ driven scoreboard widget.
+ * NativeConstruct() builds the entire layout.
+ * RefreshAll() updates it from replicated GameState / PlayerArray.
+ *
+ * NOT abstract — the WBP_TDMScoreboard blueprint inherits this and needs no
+ * graph implementation; it just acts as a vehicle for the asset reference.
+ */
+UCLASS()
 class UTDMScoreboardWidget : public UUserWidget {
   GENERATED_BODY()
 
 public:
+  /** Called by delegates bound in BeginPlayingState. Never tick-driven. */
   UFUNCTION(BlueprintCallable, Category = "TDM")
   void RefreshAll();
 
 protected:
   virtual void NativeConstruct() override;
 
-  UFUNCTION(BlueprintImplementableEvent, Category = "TDM")
-  void BP_RefreshTeamScores(const TArray<int32> &Scores);
+  // ── Live-updated text blocks ──────────────────────────────────────────────
+  UPROPERTY()
+  TObjectPtr<UTextBlock> Text_Team0Score;
 
-  UFUNCTION(BlueprintImplementableEvent, Category = "TDM")
-  void BP_RefreshTimer(float RemainingSeconds);
+  UPROPERTY()
+  TObjectPtr<UTextBlock> Text_Team1Score;
 
-  UFUNCTION(BlueprintImplementableEvent, Category = "TDM")
-  void BP_RefreshPlayerRows(const TArray<FTDMPlayerRow> &Rows);
+  UPROPERTY()
+  TObjectPtr<UTextBlock> Text_Timer;
+
+  UPROPERTY()
+  TObjectPtr<UVerticalBox> Box_PlayerRows;
+
+private:
+  /** Build the widget subtree. Called once from NativeConstruct. */
+  void BuildLayout();
+
+  /** Create one row: "PlayerName | Team X | K: n | D: n". */
+  void AddPlayerRow(const FTDMPlayerRow& Row);
 };

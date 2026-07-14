@@ -1,11 +1,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
+#include "PracticeCharacter.h"
 #include "TDMCharacter.generated.h"
 
 UCLASS(abstract)
-class ATDMCharacter : public ACharacter {
+class ATDMCharacter : public APracticeCharacter {
   GENERATED_BODY()
 
 public:

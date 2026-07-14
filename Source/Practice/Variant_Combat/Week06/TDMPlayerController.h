@@ -11,6 +11,9 @@ UCLASS(abstract, Config = "Game")
 class ATDMPlayerController : public APlayerController {
   GENERATED_BODY()
 
+public:
+  ATDMPlayerController();
+
 protected:
   UPROPERTY(EditDefaultsOnly, Category = "Input")
   TArray<UInputMappingContext *> DefaultMappingContexts;
@@ -40,4 +43,13 @@ private:
   void OnPawnDestroyed(AActor *DestroyedActor);
 
   void RespawnPawn();
+
+  // ── Debug helpers (testing only) ────────────────────────────────────────
+
+  /** F1 → simulate a kill scored by this player (for scoreboard testing). */
+  void DebugSimulateKill();
+
+  /** Server RPC that actually calls GameMode->ScoreKill. */
+  UFUNCTION(Server, Reliable)
+  void Server_DebugKill();
 };
