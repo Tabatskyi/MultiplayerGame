@@ -35,6 +35,7 @@ public class Practice : ModuleRules
             "Practice/Variant_Combat/LagComp",          // Week 07 — Lag Compensation
 			"Practice/Variant_Combat/UI",
             "Practice/Variant_Combat/Week06",           // Week 06 — Team Deathmatch
+            "Practice/Variant_Combat/Week04",           // Week 04 — Replicated Health & Damage
 			"Practice/Variant_SideScrolling",
             "Practice/Variant_SideScrolling/AI",
             "Practice/Variant_SideScrolling/Gameplay",

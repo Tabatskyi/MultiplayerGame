@@ -17,6 +17,7 @@ class UCombatLifeBar;
 class UWidgetComponent;
 class ULagCompensationComponent;
 class ALagCompensatedWeapon;
+class UHealthComponent;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogCombatCharacter, Log, All);
 
@@ -78,6 +79,18 @@ protected:
 	/** Fire Weapon Input Action (ranged, triggers the lag-compensated RPC) */
 	UPROPERTY(EditAnywhere, Category ="Input")
 	UInputAction* FireWeaponAction;
+
+	// -------------------------------------------------------------------------
+	//  Week 04 — Replicated Health & Damage
+	// -------------------------------------------------------------------------
+
+	/** F key: call ServerApplyDamage(10) on an enemy in range */
+	UPROPERTY(EditAnywhere, Category="Input")
+	UInputAction* DamageAction;
+
+	/** G key: call ServerApplyDamage(-99999) to demonstrate validation rejection */
+	UPROPERTY(EditAnywhere, Category="Input")
+	UInputAction* InvalidDamageAction;
 
 	/** Max amount of HP the character will have on respawn */
 	UPROPERTY(EditAnywhere, Category="Damage", meta = (ClampMin = 0, ClampMax = 100))
@@ -192,6 +205,18 @@ protected:
 	FTransform MeshStartingTransform;
 
 	// -------------------------------------------------------------------------
+	//  Week 04 — Replicated Health & Damage
+	// -------------------------------------------------------------------------
+
+	/**
+	 *  Health component that owns replicated health state and damage RPCs.
+	 *  Created in the constructor; always valid.
+	 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Health",
+	          meta=(AllowPrivateAccess="true"))
+	UHealthComponent* HealthComp;
+
+	// -------------------------------------------------------------------------
 	//  Week 07 — Lag Compensation
 	// -------------------------------------------------------------------------
 
@@ -240,6 +265,13 @@ protected:
 
 	/** Dispatches the fire event to the equipped weapon */
 	void ClientFireWeapon();
+
+	// Week 04 — damage key handlers
+	/** F key pressed: apply 10 damage to nearest enemy via HealthComponent RPC */
+	void DamagePressed();
+
+	/** G key pressed: try to apply -99999 damage (demonstrates validation rejection) */
+	void InvalidDamagePressed();
 
 	/** BP hook to animate the camera side switch */
 	UFUNCTION(BlueprintImplementableEvent, Category="Combat")

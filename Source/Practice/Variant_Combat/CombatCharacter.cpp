@@ -17,6 +17,8 @@
 // Week 07 — Lag Compensation
 #include "LagCompensatedWeapon.h"
 #include "LagCompensationComponent.h"
+// Week 04 — Replicated Health & Damage
+#include "Week04/HealthComponent.h"
 
 // Define the log category declared extern in CombatCharacter.h
 DEFINE_LOG_CATEGORY(LogCombatCharacter);
@@ -61,6 +63,11 @@ ACombatCharacter::ACombatCharacter() {
   // -----------------------------------------------------------------------
   LagCompComp = CreateDefaultSubobject<ULagCompensationComponent>(
       TEXT("LagCompensationComponent"));
+
+  // -----------------------------------------------------------------------
+  //  Week 04 — Replicated Health & Damage
+  // -----------------------------------------------------------------------
+  HealthComp = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
 }
 
 void ACombatCharacter::Move(const FInputActionValue &Value) {
@@ -121,6 +128,35 @@ void ACombatCharacter::ClientFireWeapon() {
 
   // Delegate to the weapon, which will send the server RPC.
   EquippedWeapon->FireWeapon();
+}
+
+// ---------------------------------------------------------------------------
+//  Week 04 — F / G key handlers
+// ---------------------------------------------------------------------------
+
+void ACombatCharacter::DamagePressed()
+{
+  // Only the locally controlled pawn issues this request
+  if (!IsLocallyControlled() || !HealthComp)
+  {
+    return;
+  }
+
+  // Ask the server to apply 10 damage — this passes validation
+  HealthComp->ServerApplyDamage(10.0f);
+}
+
+void ACombatCharacter::InvalidDamagePressed()
+{
+  // Only the locally controlled pawn issues this request
+  if (!IsLocallyControlled() || !HealthComp)
+  {
+    return;
+  }
+
+  // This value is deliberately invalid (negative) to prove that
+  // ServerApplyDamage_Validate() rejects it and logs a warning
+  HealthComp->ServerApplyDamage(-99999.0f);
 }
 
 void ACombatCharacter::DoMove(float Right, float Forward) {
@@ -561,6 +597,18 @@ void ACombatCharacter::SetupPlayerInputComponent(
       EnhancedInputComponent->BindAction(FireWeaponAction,
                                          ETriggerEvent::Started, this,
                                          &ACombatCharacter::FireWeaponPressed);
+    }
+
+    // Week 04 — Damage (F) and Invalid Damage validation test (G)
+    if (DamageAction) {
+      EnhancedInputComponent->BindAction(DamageAction, ETriggerEvent::Started,
+                                         this,
+                                         &ACombatCharacter::DamagePressed);
+    }
+    if (InvalidDamageAction) {
+      EnhancedInputComponent->BindAction(
+          InvalidDamageAction, ETriggerEvent::Started, this,
+          &ACombatCharacter::InvalidDamagePressed);
     }
   }
 }
