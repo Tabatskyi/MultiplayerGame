@@ -18,7 +18,11 @@ public class Practice : ModuleRules
             "StateTreeModule",
             "GameplayStateTreeModule",
             "UMG",
-            "Slate"
+            "Slate",
+            "SlateCore",
+            "OnlineSubsystem",
+            "OnlineSubsystemSteam",
+            "OnlineSubsystemUtils"
         });
 
         PrivateDependencyModuleNames.AddRange(new string[] { });
@@ -35,6 +39,7 @@ public class Practice : ModuleRules
             "Practice/Variant_Combat/LagComp",          // Week 07 — Lag Compensation
 			"Practice/Variant_Combat/UI",
             "Practice/Variant_Combat/Week06",           // Week 06 — Team Deathmatch
+            "Practice/Variant_Combat/Week08",           // Week 08 — Steam Online Sessions
             "Practice/Variant_Combat/Week04",           // Week 04 — Replicated Health & Damage
 			"Practice/Variant_SideScrolling",
             "Practice/Variant_SideScrolling/AI",
