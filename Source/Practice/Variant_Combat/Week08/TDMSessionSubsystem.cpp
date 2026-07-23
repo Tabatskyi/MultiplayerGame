@@ -104,7 +104,9 @@ void UTDMSessionSubsystem::HostSession(int32 MaxPlayers, FName SessionName)
     Settings.bShouldAdvertise      = true;
     Settings.bAllowJoinViaPresence = true;
     Settings.bUsesPresence         = true;       // enables Steam friend-list visibility
-    Settings.bUseLobbiesIfAvailable = true;
+    // Do NOT use lobbies — lobby-based sessions conflict with server-browser
+    // discovery when multiple games share App ID 480.
+    Settings.bUseLobbiesIfAvailable = false;
     Settings.Set(FName(TEXT("keywords")), FString(TEXT("TDM")),
                  EOnlineDataAdvertisementType::ViaOnlineService);
 
@@ -132,7 +134,9 @@ void UTDMSessionSubsystem::FindSessions(int32 MaxResults)
     SessionSearch = MakeShared<FOnlineSessionSearch>();
     SessionSearch->MaxSearchResults = FMath::Clamp(MaxResults, 1, 100);
     SessionSearch->bIsLanQuery      = false;
-    SessionSearch->QuerySettings.Set(FName(TEXT("presence")), true, EOnlineComparisonOp::Equals);
+    // Filter by our custom keyword so we only see TDM sessions,
+    // not other UE games sharing App ID 480.
+    SessionSearch->QuerySettings.Set(FName(TEXT("keywords")), FString(TEXT("TDM")), EOnlineComparisonOp::Equals);
 
     UE_LOG(LogTDMSession, Log,
            TEXT("[Session] FindSessions — MaxResults=%d"), SessionSearch->MaxSearchResults);
